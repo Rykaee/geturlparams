@@ -16,9 +16,12 @@ Function get all URL's attribute names and values.
 function get_all_attributes(){
     
     $url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-    //$url = "https://www.google.com/search?q=google&ei=VRFVYpjPH5CCxc8Pv5CFsAI&ved=0ahUKEwjYzfy96I33AhUQQfEDHT9IASYQ4dUDCA4&uact=5&oq=google&gs_lcp=Cgdnd3Mtd2l6EAMyCgguEMcBENEDEEMyBAgAEEMyBAgAEEMyBAgAEEMyBAgAEEMyBAgAEEMyBAgAEEMyBAgAEEMyBAgAEEMyBAgAEEM6BQgAEIAEOgsILhCABBDHARDRA0oECEEYAEoECEYYAFAAWIAFYO8FaABwAHgAgAFFiAH0ApIBATaYAQCgAQHAAQE&sclient=gws-wiz";
+    
+    // You can add ur url what u wanna track to $url variable.
+    //$url = "";
+
     echo "<b><h1>Shows all attributes which contains in array.</h1></b>";
-    echo  "<b>Esimerkki URL: </b>" . "$url <br> <br>";      
+    echo  "<b>Example URL: </b>" . "$url <br> <br>";      
 
     //Lets see if $url attribute got some value.
     // $check variable for checking if url got some attributes after "?"
@@ -30,10 +33,10 @@ function get_all_attributes(){
         $parameters = array();
         parse_str($queryString, $parameters);
 
-        echo "<b>Arrayn sisältö:</b> ";
+        echo "<b>Inside array:</b> ";
         print_r($parameters);
     }else{
-      echo "Kuoltiin";
+      echo "Nothing found";
        die(); 
     } 
 
@@ -44,7 +47,7 @@ function get_all_attributes(){
     }
 }
 
-get_all_attributes();
+//If you wanna call method -> get_all_attributes();
 
 
 /*
@@ -54,12 +57,15 @@ When you call this function, you need to define attribute name to $attribute and
 */
 $attribute = "auth";
 $mvalue = "off";
+
 function get_attribute($attribute, $mvalue){
-    //$url = "https://www.google.com/search?q=google&ei=VRFVYpjPH5CCxc8Pv5CFsAI&ved=0ahUKEwjYzfy96I33AhUQQfEDHT9IASYQ4dUDCA4&uact=5&oq=google&gs_lcp=Cgdnd3Mtd2l6EAMyCgguEMcBENEDEEMyBAgAEEMyBAgAEEMyBAgAEEMyBAgAEEMyBAgAEEMyBAgAEEMyBAgAEEMyBAgAEEMyBAgAEEM6BQgAEIAEOgsILhCABBDHARDRA0oECEEYAEoECEYYAFAAWIAFYO8FaABwAHgAgAFFiAH0ApIBATaYAQCgAQHAAQE&sclient=gws-wiz";
+
+    // You can add ur url what u wanna track to $url variable.
+    //$url = "";
   
     $url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
     echo "<b><h1>Shows only specific attribute and its value. <br>Function takes 2 parameters which are attribute and value.</h1></b>";
-    echo  "<b>Esimerkki URL: </b>" . "$url <br> <br>";      
+    echo  "<b>Example URL: </b>" . "$url <br> <br>";      
 
     //Lets see if $url attribute got some value.
     // $check variable for checking if url got some attributes after "?"
@@ -71,10 +77,10 @@ function get_attribute($attribute, $mvalue){
         $parameters = array();
         parse_str($queryString, $parameters);
 
-        echo "<b>Arrayn sisältö:</b> ";
+        echo "<b>Inside array:</b> ";
         print_r($parameters);
     }else{
-        echo "Kuoltiin";
+        echo "Nothing found.";
         die(); 
         } 
 
@@ -88,7 +94,8 @@ function get_attribute($attribute, $mvalue){
     } 
   }
 }
-get_attribute($attribute, $mvalue);
+
+//If you wanna call method -> get_attribute($attribute, $mvalue);
 ?> 
 </body>
 </html>
